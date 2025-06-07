@@ -14,6 +14,7 @@
 #define L_BASE 0
 #define L_NAV 1
 #define L_FUN 2
+#define L_GAME 3
 
 // To deal with the situation where there is no Lower layer, to keep &lower happy
 #ifndef L_Lower
@@ -29,9 +30,10 @@
 #define HRM_K &hmr RCTRL K
 #define HRM_L &hmr RALT L
 
-#define ___ &trans
-#define NAV_BS &lt L_NAV BACKSPACE
+#define _________ &trans
+#define NAV_BS &lt L_NAV BSPC
 #define FUN_SPC &lt L_FUN SPACE
+#define TOG_GAME &tog L_GAME
 
 &caps_word {
     continue-list = <UNDERSCORE MINUS BACKSPACE DELETE>;
@@ -168,34 +170,45 @@
 
         l_base {
             bindings = <
-                ___       ___    ___    ___    ___                                                       ___    ___       ___     ___      ___
-                &kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                                      &kp N6 &kp N7 &kp N8    &kp N9  &kp N0   &kp MINUS
-                &kp TAB   &kp Q  &kp W  &kp E  &kp R  &kp T                                       &kp Y  &kp U  &kp I     &kp O   &kp P    &kp BSLH
-                &kp ESC   &kp A  HRM_S  HRM_D  HRM_F  &kp G                                       &kp H  HRM_J  HRM_K     HRM_L   &kp SEMI &kp SQT
-                ___       &kp Z  &kp X  &kp C  &kp V  &kp B  NAV_BS    ___ ___    ___ ___ FUN_SPC &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH &kp EQUAL
-                &status   ___    ___    ___    ___           &kp LCTRL ___ ___    ___ ___ &kp RET        ___    ___       ___     ___      ___
+_________ _________ _________ _________ _________                                                                                 _________ _________ _________ _________ _________
+&kp GRAVE &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                                                                &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS
+&kp TAB   &kp Q     &kp W     &kp E     &kp R     &kp T                                                                 &kp Y     &kp U     &kp I     &kp O     &kp P     &kp BSLH
+&kp ESC   &kp A     HRM_S     HRM_D     HRM_F     &kp G                                                                 &kp H     HRM_J     HRM_K     HRM_L     &kp SEMI  &kp SQT
+_________ &kp Z     &kp X     &kp C     &kp V     &kp B     _________ _________ TOG_GAME  _________ _________ _________ &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp EQUAL
+&status   _________ _________ _________ _________           NAV_BS    &kp LCTRL _________ _________ &kp RET   FUN_SPC             _________ _________ _________ _________ _________
             >;
         };
 
         l_nav {
             bindings = <
-                ___ ___ ___ ___ ___                                         ___       ___       ___       ___ ___
-                ___ ___ ___ ___ ___ ___                            ___      ___       ___       ___       ___ ___
-                ___ ___ ___ ___ ___ ___                            &kp HOME &kp PG_DN &kp PG_UP &kp END   ___ ___
-                ___ ___ ___ ___ ___ ___                            &kp LEFT &kp DOWN  &kp UP    &kp RIGHT ___ ___
-                ___ ___ ___ ___ ___ ___ ___ ___ ___    ___ ___ ___ ___      ___       ___       ___       ___ ___
-                ___ ___ ___ ___ ___     ___ ___ ___    ___ ___ ___ ___      ___                 ___       ___ ___
+_________ _________ _________ _________ _________                                                                                 _________ _________ _________ _________ _________
+_________ _________ _________ _________ _________ _________                                                             _________ _________ _________ _________ _________ _________
+_________ _________ _________ _________ _________ _________                                                             &kp HOME  &kp PG_DN &kp PG_UP &kp END   _________ _________
+_________ _________ _________ _________ _________ _________                                                             &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT _________ _________
+_________ _________ _________ _________ _________ _________ _________ _________ _________ _________ _________ _________ _________ _________ _________ _________ _________ _________
+_________ _________ _________ _________ _________           _________ _________ _________ _________ _________ _________           _________ _________ _________ _________ _________
             >;
         };
 
         l_fun {
             bindings = <
-                ___ ___    ___    ___    ___                                          ___    ___    ___     ___     ___
-                ___ &kp F1 &kp F2 &kp F3 &kp F4 &kp F5                         &kp F6 &kp F7 &kp F8 &kp F9  &kp F10 ___
-                ___ ___    ___    ___    ___    ___                            ___    ___    ___    &kp F11 &kp F12 ___
-                ___ ___    ___    ___    ___    ___                            ___    ___    ___    ___     ___     ___
-                ___ ___    ___    ___    ___    ___ ___ ___ ___    ___ ___ ___ ___    ___    ___    ___     ___     ___
-                ___ ___    ___    ___    ___        ___ ___ ___    ___ ___ ___ ___    ___           ___     ___     ___
+_________ _________ _________ _________ _________                                                                                 _________ _________ _________ _________ _________
+_________ &kp F1    &kp F2    &kp F3    &kp F4    &kp F5                                                                &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   _________
+_________ _________ _________ _________ _________ _________                                                             _________ _________ _________ &kp F11   &kp F12   _________
+_________ _________ _________ _________ _________ _________                                                             _________ _________ _________ _________ _________ _________
+_________ _________ _________ _________ _________ _________ _________ _________ _________ _________ _________ _________ _________ _________ _________ _________ _________ _________
+_________ _________ _________ _________ _________           _________ _________ _________ _________ _________ _________ _________           _________ _________ _________ _________
+            >;
+        };
+
+        l_game {
+            bindings = <
+&kp F1    &kp F2    &kp F3    &kp F4    &kp F5                                                                                    &kp F6    &kp F7    &kp F8    &kp F9    &kp F10
+&kp GRAVE &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                                                                &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS
+&kp TAB   &kp Q     &kp W     &kp E     &kp R     &kp T                                                                 &kp Y     &kp U     &kp I     &kp O     &kp P     &kp BSLH
+&kp ESC   &kp A     &kp S     &kp D     &kp F     &kp G                                                                 &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT
+&kp LSHFT &kp Z     &kp X     &kp C     &kp V     &kp B     _________ _________ TOG_GAME  _________ _________ _________ &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp EQUAL
+&kp LCTRL _________ _________ _________ _________           &kp BSPC  &kp LCTRL _________ _________ &kp RET   &kp SPACE           _________ _________ _________ _________ _________
             >;
         };
     };
