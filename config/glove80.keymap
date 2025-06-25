@@ -138,22 +138,22 @@
         compatible = "zmk,combos";
 
         combo_left_brace {
-            key-positions = <24 25>;
+            key-positions = <48 49>;
             bindings = <&kp LBRC>;
         };
 
         combo_right_brace {
-            key-positions = <25 26>;
+            key-positions = <49 50>;
             bindings = <&kp RBRC>;
         };
 
         combo_left_bracket {
-            key-positions = <29 30>;
+            key-positions = <59 60>;
             bindings = <&kp LBKT>;
         };
 
         combo_right_bracket {
-            key-positions = <30 31>;
+            key-positions = <60 61>;
             bindings = <&kp RBKT>;
         };
 
