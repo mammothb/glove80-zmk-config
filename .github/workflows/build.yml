@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: mammothb/zmk
-          ref: feat/qmk-caps-word
+          ref: main-glove80
           path: src
       - uses: cachix/install-nix-action@v25
         with:
